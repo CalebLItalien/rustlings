@@ -5,15 +5,10 @@
 // I AM NOT DONE
 
 pub fn bigger(a: i32, b: i32) -> i32 {
-    if a > b {
-        a
-    }
-    else if b > a {
-        b
-    }
-    else {
-        b
-    }
+    // Complete this function to return the bigger number!
+    // Do not use:
+    // - another function call
+    // - additional variables
 }
 
 // Don't mind this for now :)
