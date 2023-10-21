@@ -32,7 +32,7 @@ mod my_module {
 
     pub fn transformer(input: Vec<T>) -> Vec<T> {
         // TODO: Complete the output declaration!
-        let mut output: Vec<T> = vec![];
+        let mut output: ??? = vec![];
         for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
         }
