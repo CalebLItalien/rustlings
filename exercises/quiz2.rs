@@ -30,11 +30,15 @@ pub enum Command {
 mod my_module {
     use super::Command;
 
-    pub fn transformer(input: Vec<T>) -> Vec<T> {
-        // TODO: Complete the output declaration!
-        let mut output: Vec<T> = vec![];
+    pub fn transformer<>(input: Vec<(String, Command)>) -> Vec<String> {
+        let mut output: Vec<String> = vec![];
         for (string, command) in input.iter() {
-            // TODO: Complete the function body. You can do it!
+            let transformed_string = match command {
+                Command::Uppercase => string.to_uppercase(),
+                Command::Trim => string.trim().to_string(),
+                Command::Append(n) => format!("{}{}", string, "bar".repeat(*n)),
+            };
+            output.push(transformed_string);
         }
         output
     }
@@ -42,12 +46,12 @@ mod my_module {
 
 #[cfg(test)]
 mod tests {
-    use my_module;
+    use super::my_module;
     use super::Command;
 
     #[test]
     fn it_works() {
-        let output = transformer(vec![
+        let output = my_module::transformer(vec![
             ("hello".into(), Command::Uppercase),
             (" all roads lead to rome! ".into(), Command::Trim),
             ("foo".into(), Command::Append(1)),
